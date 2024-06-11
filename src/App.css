@@ -1053,3 +1053,12 @@ a {
     }
 }
 
+@media only screen and (min-width: 965px) {
+    .content, .entry-menu-content, .update-content {
+        width: 40rem;
+    }
+
+    .update-header {
+        width: 40rem;
+    }
+}

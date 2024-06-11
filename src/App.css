@@ -372,7 +372,7 @@ a {
 
 .description-header,
 .update-header {
-    width: 40rem;
+    width: 60svw;
     background-color: var(--main-color);
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
@@ -382,8 +382,8 @@ a {
 .update-content {
     display: flex;
     justify-content: center;
-    width: 40rem;
-    height: 48rem;
+    width: 60svw;
+    height: 70svh;
     background-color: #fff;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
@@ -396,9 +396,9 @@ a {
 
 .update-menu {
     position: fixed;
-    left: 50%;
-    bottom: -45%;
-    transform: translate(-50%, -50%);
+    /* left: 50%; */
+    bottom: 9%;
+    /* transform: translate(-50%, -50%); */
     transition: 200ms ease-in-out;
     z-index: 20;
 }
@@ -409,8 +409,8 @@ a {
 
 .update-main {
     margin-top: 1rem;
-    width: 38rem;
-    height: 20rem;
+    width: 40svw;
+    height: 40svh;
     padding: 2rem;
     background-color: #fff;
     border-radius: .25rem;
@@ -447,8 +447,8 @@ a {
 
 .content {
     background-color: var(--white);
-    min-width: 40rem;
-    height: 44rem;
+    width: 60svw;
+    height: 60svh;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     overflow: hidden;
@@ -547,9 +547,9 @@ a {
 
 .entry-menu {
     position: fixed;
-    bottom: -44%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 9%;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     transition: 200ms ease-in-out;
     z-index: 10;
 }
@@ -589,8 +589,8 @@ a {
 }
 
 .entry-menu-content {
-    width: 40rem;
-    height: 46rem;
+    width: 60svw;
+    height: 70svh;
     background-color: #fff;
     display: grid;
     justify-content: center;

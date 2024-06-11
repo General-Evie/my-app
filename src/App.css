@@ -448,7 +448,7 @@ a {
 .content {
     background-color: var(--white);
     width: 60svw;
-    height: 60svh;
+    height: 70svh;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     overflow: hidden;

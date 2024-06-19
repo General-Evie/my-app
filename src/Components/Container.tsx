@@ -88,6 +88,7 @@ const Container: React.FC = () => {
             return (
                 <div onClick={() => handleUpdate(entryData)} className='entries' key={entryData.id}>
                     <div className='type-of-entry'>
+                    <span className='tooltip'>Update Entry</span>
                         <div className='selected-child'>{renderComponent()}</div>
                         <div className='entry-details'>
                             <div>{type}</div>
@@ -171,16 +172,21 @@ const Container: React.FC = () => {
                 handleEnterClick={handleEnterClick}
             />
             <div className="calendar-button">
+                
                 <div className="month">
                     <i className="fas prevDay" onClick={handlePrevDay}>&#xf104;</i>
                     <div className="date">
+                        <span className='tooltip'>Change the Day</span>
                         <h1 onClick={handleCalendar}>{`${monthNames[currentDate.getMonth()]} ${currentDate.getDate()}`}</h1>
                     </div>
                     <i className="fas nextDay" onClick={handleNextDay}>&#xf105;</i>
                 </div>
                 <div className="content">{entries}</div>
                 <div className="entries-overlay">
-                    <button className="entry-button" onClick={handleEntry}><PenIcon /></button>
+                    <button className="entry-button" onClick={handleEntry}>
+                    <span className='tooltip'>Make an Entry</span>
+                        <PenIcon />
+                    </button>
                 </div>
             </div>
             <EntryMenu

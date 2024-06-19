@@ -88,6 +88,7 @@ const selectedDayOfMonth = selectedDate ? selectedDate.getDate() : null;
 return (
     <div>
         <div id="calendar2">
+        <span className='tooltip'>Select a Day</span>
             <div className="calendar-header">
                 <div>
                     <span>{year}</span>

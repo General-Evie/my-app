@@ -102,6 +102,7 @@ const selectedDayOfMonth = selectedDate && selectedDate.getFullYear() === year &
 return (
     <div>
         <div id="calendar">
+            <span className='tooltip'>Select a Day</span>
             <div className="calendar-header">
                 <div>
                     <span>{year}</span>

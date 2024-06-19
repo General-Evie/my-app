@@ -49,6 +49,64 @@ a {
     border-radius: 2rem;
 }
 
+.date {
+    position: relative;
+}
+
+.date:hover .tooltip, .entry-button:hover .tooltip, .update-entry-button:hover .tooltip  {
+    top: -40%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.entry-menu-header:hover .tooltip, 
+.lower-entry-menu:hover .tooltip,
+.food:hover .tooltip,
+.drink:hover .tooltip,
+.others:hover .tooltip,
+#calendar:hover .tooltip,
+#calendar2:hover .tooltip,
+.clock:hover .tooltip,
+.type-of-entry:hover .tooltip,
+.delete-icon:hover .tooltip{
+    top: 5%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.delete-icon:hover .tooltip {
+    font-size: .3em;
+}
+
+.update-entry-button:hover .tooltip {
+    font-size: .7em;
+}
+
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    white-space: nowrap;
+    padding: 5px 3px;
+    border-radius: 5px;
+    font-size: .6em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top-color: #333;
+}
+
 #calendar {
     bottom: -36.25%;
 }
@@ -70,7 +128,7 @@ a {
 }
 
 #calendar2 {
-    bottom: -43.5%;
+    bottom: -37%;
 }
 
 #calendar.active,
@@ -87,6 +145,35 @@ a {
     text-align: center;
     padding: 3rem 2rem;
     border-radius: 2rem;
+}
+
+.entry-menu-li {
+    position: relative;
+    padding: 2px;
+    font-weight: bold;
+  }
+
+.entry-menu-li::before  {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.entry-menu-li:hover::before, .entry-menu-li.active::before {
+    transform: scaleX(1);
+}
+
+.date, i, .current-month-day, .ok, .cancel, li, .entry-menu-content .entry-buttons, .save, .type-of-entry, .update-entry-button, .delete-icon svg, .clock-menu, .date-menu, .am-pm, .clock-cancel, .clock-ok {
+    cursor: pointer;
 }
 
 .calendar-header {
@@ -222,6 +309,7 @@ a {
     height: 30rem;
     width: 30rem;
     background-color: #fff;
+    position: relative;
 }
 
 .analog {
@@ -601,6 +689,7 @@ a {
 .food,
 .drink,
 .others {
+    position: relative;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -985,14 +1074,22 @@ a {
         transform: none;
     }
 
+    .update-content {
+        height: 100svh;
+    }
+
     .update-menu, .update-header, .update-content{
         top: 0;
         bottom: 0;
         right: 0;
         left: 0;
-        max-width: 100svw;
-        max-height: 100svh;
+        width: 100svw;
+        /* max-height: 100svh; */
         transform: none;
+    }
+
+    .update-main {
+        width: 80svw;
     }
 
     .clock, .clock-content{

@@ -94,6 +94,7 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                         <i className="fas close-update-menu" onClick={Close}>&#xf104;</i>
                         Details
                         <div className='delete-icon' onClick={handleDelete}>
+                        <span className='tooltip'>Delete Entry</span>
                             <DeleteIcon />
                         </div>
                     </h1>
@@ -105,8 +106,8 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                             <div className='update-type-name'>{entryData.type}</div>
                         </div>
                         <div className='update-details'>
-                            <div className='update-time'>Time {entryData.selectedTime}</div>
-                            <div className='update-date'>Date {entryData.selectedEntryDate
+                            <div className='update-time'>Time:  {entryData.selectedTime}</div>
+                            <div className='update-date'>Date:  {entryData.selectedEntryDate
                                 ? new Date(entryData.selectedEntryDate).toLocaleDateString(undefined, {
                                     year: 'numeric',
                                     month: 'long',
@@ -114,10 +115,11 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                                 })
                                 : null}
                             </div>
-                            <div className='update-description'>Description {entryData.description}</div>
+                            <div className='update-description'>Description:  {entryData.description}</div>
                         </div>
                     </div>
                     <button className="update-entry-button" onClick={EntryUpdate}>
+                    <span className='tooltip'>Edit Entry</span>
                         <PenIcon />
                     </button>
                 </div>

@@ -20,6 +20,7 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
   const [food, setFood] = useState<boolean>(true)
   const [drink, setDrink] = useState<boolean>(false)
   const [other, setOther] = useState<boolean>(false)
+  const [activeTab, setActiveTab] = useState<string>('food')
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null)
 
 
@@ -29,20 +30,9 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
     setOther(false)
   }
 
-  const handleFood = () => {
-    display();
-    setFood(true);
-  };
-
-  const handleDrink = () => {
-    display();
-    setDrink(true);
-  };
-
-  const handleOther = () => {
-    display();
-    setOther(true);
-  };
+  const handleFood = () => setActiveTab('food');
+  const handleDrink = () => setActiveTab('drink');
+  const handleOther = () => setActiveTab('other');
 
   const clickedComponent = (type: string) => {
     setSelectedComponent(type)
@@ -63,25 +53,26 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
   if (!open) return null
   return (
     <div>
-      <div className="entry-menu">
+      <div className="entry-menu">        
         <div className="entry-menu-header">
           <h1><i className="fas close-menu" onClick={Close}>&#xf104;</i>Manage</h1>
           <nav className="entry-menu-nav">
-            <li className="entry-menu-li" id="food" onClick={handleFood}>Food</li>
-            <li className="entry-menu-li" id="drink" onClick={handleDrink}>Drink</li>
-            <li className="entry-menu-li" id="others" onClick={handleOther}>Other</li>
+            <span className='tooltip'>Select a Category</span>
+            <li className={`entry-menu-li ${activeTab === 'food' ? 'active' : ''}`}  id="food" onClick={handleFood}>Food</li>
+            <li className={`entry-menu-li ${activeTab === 'drink' ? 'active' : ''}`} id="drink" onClick={handleDrink}>Drink</li>
+            <li className={`entry-menu-li ${activeTab === 'other' ? 'active' : ''}`} onClick={handleOther}>Other</li>
           </nav>
         </div>
         <div className="entry-menu-content">
-          {food && <Food
+          {activeTab === 'food' && <Food
             food={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
           />}
-          {drink && <Drink
+          {activeTab === 'drink' && <Drink
             drink={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
           />}
-          {other && <Other
+          {activeTab === 'other' && <Other
             other={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
           />}

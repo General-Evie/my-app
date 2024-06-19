@@ -198,6 +198,7 @@ const LowerEntryMenu: React.FC<LowerEntryMenuProps> = ({ open, displayDate, Clos
     return (
         <div className="lower-entry-menu-background">
             <div className="lower-entry-menu" >
+            <span className='tooltip'>Add a Description, Change Time, or Date</span>
                 <div className="lower-entry-menu-header" >
                     <div className='selected-child'>{renderComponent()}</div>
                     <div className='entry-type-name'>{type}</div>

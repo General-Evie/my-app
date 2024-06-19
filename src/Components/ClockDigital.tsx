@@ -66,12 +66,13 @@ const ClockDigital: React.FC<DigitalProps> = ({ Close, setSelectedTime, analogDi
     return (
         <div>
             <div className="clock">
+            
                 <div className="clock-header">
                     <h1>Set Time</h1>
                 </div>
 
                 <div className="clock-content">
-
+                <span className='tooltip'>Enter a Time</span>
                     <div className="digital">
                         <div className='digital-inputs'>
                             <input

@@ -24,6 +24,7 @@ const Other: React.FC<OtherProps> = ({ other, renderType }) => {
     return (
         <div>
             <div className="others">
+            <span className='tooltip'>Select a Type</span>
                 <div className='entry-type' onClick={() => handleType('Exercise')}>
                     <Exercise />
                     <div className='entry-type-name'>Exercise</div>

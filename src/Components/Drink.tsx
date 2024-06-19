@@ -23,6 +23,7 @@ const Drink:React.FC<DrinkProps> = ({ drink, renderType }) => {
     return (
         <div>
             <div className="drink">
+            <span className='tooltip'>Select a Type</span>
                 <div className="entry-type" onClick={() => handleType('Water')}>
                     <Water />
                     <div className="entry-type-name">Water</div>

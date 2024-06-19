@@ -24,6 +24,7 @@ const Food: React.FC<FoodProps> = ({ food, renderType }) => {
     return (
         <div>
             <div className="food">
+                <span className='tooltip'>Select a Type</span>
                 <div className='entry-type' onClick={() => handleType('Lunch')}>
                     <Lunch />
                     <div className="entry-type-name">Lunch</div>

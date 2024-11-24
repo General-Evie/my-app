@@ -11,7 +11,7 @@ const Alcohol: React.FC<AlcoholProps> = ({}) => {
 
     return (
         <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Alcohol'><BeerIcon /></button>
+            <button className="entry-buttons" id='Alcohol' color='#000'><BeerIcon /></button>
         </div>
     )
 }

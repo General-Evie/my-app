@@ -19,9 +19,17 @@ html {
     background-color: #555;
 }
 
+svg {
+    fill: #fff; 
+}
+
 h1 {
     margin: 0;
-    /* padding: 2rem; */
+    color: var(--white);
+}
+
+.calendar-header span, .month i, .save {
+    color: var(--white);
 }
 
 h2 {
@@ -222,7 +230,6 @@ a {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    /* margin-bottom: 5rem; */
     padding: .94rem;
 }
 
@@ -266,10 +273,10 @@ a {
     align-items: center;
     bottom: 0;
     right: 0;
+    color: var(--white);
 }
 
 .buttons div {
-    background-color: var(--white);
     margin: 1rem;
     padding: 1rem;
     border: none;
@@ -444,7 +451,6 @@ a {
 }
 
 .error-message {
-    /* flex: 1; */
     display: inline;
     color: red;
 }
@@ -711,6 +717,7 @@ a {
     border: 1px solid;
     border-radius: .8rem;
     margin-bottom: .5rem;
+    color: var(--white);
     background-color: gray;
     box-shadow: 0 5px 5px 0px rgba(0, 0, 0, .4);
     pointer-events: all;
@@ -914,6 +921,7 @@ a {
 #Meds,
 #Herbal,
 #Supplements {
+    color: #fff;
     border: none;
 }
 

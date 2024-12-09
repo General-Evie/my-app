@@ -57,7 +57,7 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
         <div className="entry-menu-header">
           <h1><i className="fas close-menu" onClick={Close}>&#xf104;</i>Manage</h1>
           <nav className="entry-menu-nav">
-            <span className='tooltip'>Select a Category</span>
+            <span className='tooltip' id='category'>Select a Category</span>
             <li className={`entry-menu-li ${activeTab === 'food' ? 'active' : ''}`}  id="food" onClick={handleFood}>Food</li>
             <li className={`entry-menu-li ${activeTab === 'drink' ? 'active' : ''}`} id="drink" onClick={handleDrink}>Drink</li>
             <li className={`entry-menu-li ${activeTab === 'other' ? 'active' : ''}`} onClick={handleOther}>Other</li>

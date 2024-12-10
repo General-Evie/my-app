@@ -1,17 +1,18 @@
 import React from 'react'
 import { WaterIcon } from '../SVGs/WaterSVG'
 
-interface TypedrinkProps {}
+interface TypedrinkProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Typedrink: React.FC<TypedrinkProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Typedrink: React.FC<TypedrinkProps> = ({activeType, setActiveType}) => {
+    const handleTDrink = () => setActiveType('drink')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Drink'><WaterIcon /></button>
+        <div onClick={handleTDrink}>
+            <button className={`entry-buttons ${activeType === 'drink' ? 'active' : ''}`} id='Drink'><WaterIcon /></button>
         </div>
     )
 }

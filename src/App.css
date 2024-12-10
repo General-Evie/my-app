@@ -651,9 +651,7 @@ a {
 
 .entry-menu {
     position: fixed;
-    bottom: 9%;
-    /* left: 50%; */
-    /* transform: translate(-50%, -50%); */
+    bottom: 7%;
     transition: 200ms ease-in-out;
     z-index: 10;
 }
@@ -938,74 +936,74 @@ a {
     border: none;
 }
 
-#Lunch {
+#Lunch.active, .selected-child #Lunch, .update-type #Lunch  {
     background-color: #327f9f;
 }
 
-#Food {
+#Food.active, .selected-child #Food, .update-type #Food {
     background-color: #006599;
 }
 
-#Junk {
+#Junk.active, .selected-child #Junk, .update-type #Junk {
     background-color: #0f6b74;
 }
 
-#Snacks {
+#Snacks.active, .selected-child #Snacks, .update-type #Snacks {
     background-color: #9a605f;
 }
 
-#Dinner {
+#Dinner.active, .selected-child #Dinner, .update-type #Dinner {
     background-color: #dd2831;
 }
 
-#Breakfast {
+#Breakfast.active, .selected-child #Breakfast, .update-type #Breakfast {
     background-color: #e58312;
 }
 
-#Water {
+#Water.active, .selected-child #Water, .update-type #Water {
     background-color: #b53369;
 }
 
-#Drink {
+#Drink.active, .selected-child #Drink, .update-type #Drink {
     background-color: #b8306e;
 }
 
-#Tea {
+#Tea.active, .selected-child #Tea, .update-type #Tea {
     background-color: #fd3e0a;
 }
 
-#Juice {
+#Juice.active, .selected-child #Juice, .update-type #Juice {
     background-color: #8a6914;
 }
 
-#Energy {
+#Energy.active, .selected-child #Energy, .update-type #Energy {
     border: none;
     background-color: #8c7600;
 }
 
-#Alcohol {
+#Alcohol.active, .selected-child #Alcohol, .update-type #Alcohol {
     background-color: #656177;
 }
 
-#Coffee {
+#Coffee.active, .selected-child #Coffee, .update-type #Coffee {
     background-color: #652718;
 }
 
-#Exercise {
+#Exercise.active, .selected-child #Exercise, .update-type #Exercise {
     background-color: #21b0aa;
 }
 
-#Meds {
+#Meds.active, .selected-child #Meds, .update-type #Meds {
     background-color: #746c9f;
 }
 
-#Herbal {
+#Herbal.active, .selected-child #Herbal, .update-type #Herbal {
     background-color: #6a9709;
 }
 
-#Supplements {
+#Supplements.active, .selected-child #Supplements, .update-type #Supplements {
     background-color: #c24737;
-}
+}  
 
 .selected-child {
     margin-right: 1rem;

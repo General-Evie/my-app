@@ -1,17 +1,18 @@
 import React from 'react'
 import { BeerIcon } from '../SVGs/BeerSVG'
 
-interface AlcoholProps {}
+interface AlcoholProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Alcohol: React.FC<AlcoholProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Alcohol: React.FC<AlcoholProps> = ({activeType, setActiveType}) => {
+    const handleAlcohol = () => setActiveType('alcohol')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Alcohol' color='#000'><BeerIcon /></button>
+        <div onClick={handleAlcohol}>
+            <button className={`entry-buttons ${activeType === 'alcohol' ? 'active' : ''}`} id='Alcohol' color='#000'><BeerIcon /></button>
         </div>
     )
 }

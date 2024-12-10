@@ -37,9 +37,11 @@ interface LowerEntryMenuProps {
     localStorageKey: string;
     selectedComponent: string | null
     entryData: any;
+    activeType: string;
+    setActiveType: (type: string) => void;
 }
 
-const LowerEntryMenu: React.FC<LowerEntryMenuProps> = ({ open, displayDate, Close, initialDate, localStorageKey, onSaveEntry, selectedComponent, update, entryData }) => {
+const LowerEntryMenu: React.FC<LowerEntryMenuProps> = ({ open, displayDate, Close, initialDate, localStorageKey, onSaveEntry, selectedComponent, update, entryData, setActiveType, activeType }) => {
 
 
     const getCurrentTime = () => {
@@ -114,45 +116,96 @@ const LowerEntryMenu: React.FC<LowerEntryMenuProps> = ({ open, displayDate, Clos
             setSelectedTime(entryData.selectedTime)
             setSelectedEntryDate(new Date(entryData.selectedEntryDate))
         }
-        
+
     }, [entryData, selectedComponent, update])
 
     const renderComponent = () => {
         switch (type) {
             case 'Lunch':
-                return <Lunch />;
+                return <Lunch
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Food':
-                return <Tfood />;
+                return <Tfood
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Junk':
-                return <Junk />;
+                return <Junk
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Snacks':
-                return <Snacks />;
+                return <Snacks
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Dinner':
-                return <Dinner />;
+                return <Dinner
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Breakfast':
-                return <Breakfast />;
+                return <Breakfast
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Water':
-                return <Water />;
+                return <Water
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Tea':
-                return <Tea />;
+                return <Tea
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Juice':
-                return <Juice />;
+                return <Juice
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Energy':
-                return <Energy />;
+                return <Energy
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Alcohol':
-                return <Alcohol />;
+                return <Alcohol
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Drink':
-                return <Typedrink />;
+                return <Typedrink
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Coffee':
-                return <Coffee />;
+                return <Coffee
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Exercise':
-                return <Exercise />;
+                return <Exercise
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Meds':
-                return <Meds />;
+                return <Meds
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Herbal':
-                return <Herbal />;
+                return <Herbal
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Supplements':
-                return <Supplements />;
+                return <Supplements
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             default:
                 return null;
         }
@@ -198,7 +251,7 @@ const LowerEntryMenu: React.FC<LowerEntryMenuProps> = ({ open, displayDate, Clos
     return (
         <div className="lower-entry-menu-background">
             <div className="lower-entry-menu" >
-            <span className='tooltip'>Add a Description, Change Time, or Date</span>
+                <span className='tooltip'>Add a Description, Change Time, or Date</span>
                 <div className="lower-entry-menu-header" >
                     <div className='selected-child'>{renderComponent()}</div>
                     <div className='entry-type-name'>{type}</div>

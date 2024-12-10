@@ -1,17 +1,18 @@
 import React from 'react'
 import { PillsIcon } from '../SVGs/PillsSVG'
 
-interface SupplementsProps {}
+interface SupplementsProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Supplements: React.FC<SupplementsProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Supplements: React.FC<SupplementsProps> = ({activeType, setActiveType}) => {
+    const handleSupplements = () => setActiveType('supplements')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Supplements'><PillsIcon /></button>
+        <div onClick={handleSupplements}>
+            <button className={`entry-buttons ${activeType === 'supplements' ? 'active' : ''}`} id='Supplements'><PillsIcon /></button>
         </div>
     )
 }

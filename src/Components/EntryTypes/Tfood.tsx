@@ -1,15 +1,18 @@
 import React from 'react'
 import { UtensilsIcon } from '../SVGs/UtensilsSVG';
 
-interface TfoodProps {}
+interface TfoodProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Tfood: React.FC<TfoodProps> = ({}) => {
-    const handleChildClick = () => {
-    };
+const Tfood: React.FC<TfoodProps> = ({activeType, setActiveType}) => {
+   
+    const handleTfood = () => setActiveType('food')
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Food'><UtensilsIcon /></button>
+        <div onClick={handleTfood}>
+            <button className={`entry-buttons ${activeType === 'food' ? 'active' : ''}`} id='Food'><UtensilsIcon /></button>
         </div>
     )
 }

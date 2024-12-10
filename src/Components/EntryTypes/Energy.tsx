@@ -1,17 +1,18 @@
 import React from 'react'
 import { EnergyIcon } from '../SVGs/EnergySVG'
 
-interface EnergyProps {}
+interface EnergyProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Energy: React.FC<EnergyProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Energy: React.FC<EnergyProps> = ({activeType, setActiveType}) => {
+    const handleEnergy = () => setActiveType('energy')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Energy'><EnergyIcon /></button>
+        <div onClick={handleEnergy}>
+            <button className={`entry-buttons ${activeType === 'energy' ? 'active' : ''}`} id='Energy'><EnergyIcon /></button>
         </div>
     )
 }

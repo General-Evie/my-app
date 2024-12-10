@@ -1,17 +1,18 @@
 import React from 'react'
 import { WheatIcon } from '../SVGs/WheatSVG'
 
-interface HerbalProps {}
+interface HerbalProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Herbal: React.FC<HerbalProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Herbal: React.FC<HerbalProps> = ({activeType, setActiveType}) => {
+    const handleHerbal = () => setActiveType('herbal')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Herbal'><WheatIcon /></button>
+        <div onClick={handleHerbal}>
+            <button className={`entry-buttons ${activeType === 'herbal' ? 'active' : ''}`} id='Herbal'><WheatIcon /></button>
         </div>
     )
 }

@@ -31,6 +31,7 @@ const Container: React.FC = () => {
     const [Update, setUpdate] = useState<boolean>(false);
     const [entries, setEntries] = useState<JSX.Element[]>([]);
     const [clickedEntryData, setClickedEntryData] = useState<any>(null);
+    const [activeType, setActiveType] = useState<string>('')
 
     const localStorageKey = 'myApp.entries';
 
@@ -45,39 +46,90 @@ const Container: React.FC = () => {
         const renderComponent = () => {
             switch (type) {
                 case 'Lunch':
-                    return <Lunch />;
+                    return <Lunch
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Food':
-                    return <Tfood />;
+                    return <Tfood
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Junk':
-                    return <Junk />;
+                    return <Junk
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Snacks':
-                    return <Snacks />;
+                    return <Snacks
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Dinner':
-                    return <Dinner />;
+                    return <Dinner
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Breakfast':
-                    return <Breakfast />;
+                    return <Breakfast
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Water':
-                    return <Water />;
+                    return <Water
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Tea':
-                    return <Tea />;
+                    return <Tea
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Juice':
-                    return <Juice />;
+                    return <Juice
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Energy':
-                    return <Energy />;
+                    return <Energy
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Alcohol':
-                    return <Alcohol />;
+                    return <Alcohol
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Drink':
-                    return <Typedrink />;
+                    return <Typedrink
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Coffee':
-                    return <Coffee />;
+                    return <Coffee
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Exercise':
-                    return <Exercise />;
+                    return <Exercise
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Meds':
-                    return <Meds />;
+                    return <Meds
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Herbal':
-                    return <Herbal />;
+                    return <Herbal
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 case 'Supplements':
-                    return <Supplements />;
+                    return <Supplements
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />;
                 default:
                     return null;
             }
@@ -88,7 +140,7 @@ const Container: React.FC = () => {
             return (
                 <div onClick={() => handleUpdate(entryData)} className='entries' key={entryData.id}>
                     <div className='type-of-entry'>
-                    <span className='tooltip'>Update Entry</span>
+                        <span className='tooltip'>Update Entry</span>
                         <div className='selected-child'>{renderComponent()}</div>
                         <div className='entry-details'>
                             <div>{type}</div>
@@ -172,7 +224,7 @@ const Container: React.FC = () => {
                 handleEnterClick={handleEnterClick}
             />
             <div className="calendar-button">
-                
+
                 <div className="month">
                     <i className="fas prevDay" onClick={handlePrevDay}>&#xf104;</i>
                     <div className="date">
@@ -184,7 +236,7 @@ const Container: React.FC = () => {
                 <div className="content">{entries}</div>
                 <div className="entries-overlay">
                     <button className="entry-button" onClick={handleEntry}>
-                    <span className='tooltip'>Make an Entry</span>
+                        <span className='tooltip'>Make an Entry</span>
                         <PenIcon />
                     </button>
                 </div>
@@ -198,6 +250,8 @@ const Container: React.FC = () => {
                 initialDate={currentDate}
                 localStorageKey={localStorageKey}
                 entryData={clickedEntryData}
+                activeType={activeType}
+                setActiveType={setActiveType}
             />
 
             <UpdateMenu
@@ -210,6 +264,8 @@ const Container: React.FC = () => {
                 localStorageKey={localStorageKey}
                 entryData={clickedEntryData}
                 deleteEntry={deleteEntry}
+                activeType={activeType}
+                setActiveType={setActiveType}
             />
         </div>
     );

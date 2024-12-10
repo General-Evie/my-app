@@ -9,16 +9,16 @@ import Breakfast from './EntryTypes/Breakfast'
 interface FoodProps {
     food: (isOpen: boolean) => void;
     renderType: (type: string) => void;
+    activeType: string;
+    setActiveType: (type: string) => void;
 }
 
 
-const Food: React.FC<FoodProps> = ({ food, renderType }) => {
-    const [activeComponent, setActiveComponent] = useState<string | null>(null);
+const Food: React.FC<FoodProps> = ({ food, renderType, activeType, setActiveType }) => {
 
-    const handleType = (type: string, ) => {
+    const handleType = (type: string) => {
         food(true);
         renderType(type)
-        
     };
 
     return (
@@ -26,27 +26,45 @@ const Food: React.FC<FoodProps> = ({ food, renderType }) => {
             <div className="food">
                 <span className='tooltip'>Select a Type</span>
                 <div className='entry-type' onClick={() => handleType('Lunch')}>
-                    <Lunch />
+                    <Lunch
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Lunch</div>
                 </div>
                 <div className='entry-type' onClick={() => handleType('Food')}>
-                    <Tfood />
+                    <Tfood
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Food</div>
                 </div>
                 <div className='entry-type' onClick={() => handleType('Junk')}>
-                    <Junk />
+                    <Junk
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Junk</div>
                 </div>
                 <div className='entry-type' onClick={() => handleType('Snacks')}>
-                    <Snacks />
+                    <Snacks
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Snacks</div>
                 </div>
                 <div className='entry-type' onClick={() => handleType('Dinner')}>
-                    <Dinner />
+                    <Dinner
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Dinner</div>
                 </div>
                 <div className='entry-type' onClick={() => handleType('Breakfast')}>
-                    <Breakfast />
+                    <Breakfast
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Breakfast</div>
                 </div>
             </div>

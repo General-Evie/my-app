@@ -30,47 +30,100 @@ interface UpdateProps {
     localStorageKey: string;
     entryData: any;
     deleteEntry: (entryId: any) => void;
+    activeType: string;
+    setActiveType: (type: string) => void;
 }
 
-const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEntry, initialDate, localStorageKey, update, entryData, deleteEntry }) => {
+const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEntry, initialDate, localStorageKey, update, entryData, deleteEntry, activeType, setActiveType }) => {
     const [openEntryUpdate, setOpenEntryUpdate] = useState<boolean>(false);
 
     const renderComponent = () => {
         switch (entryData.type) {
             case 'Lunch':
-                return <Lunch />;
+                return <Lunch
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Food':
-                return <Tfood />;
+                return <Tfood
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Junk':
-                return <Junk />;
+                return <Junk
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Snacks':
-                return <Snacks />;
+                return <Snacks
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Dinner':
-                return <Dinner />;
+                return <Dinner
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Breakfast':
-                return <Breakfast />;
+                return <Breakfast
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Water':
-                return <Water />;
+                return <Water
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Tea':
-                return <Tea />;
+                return <Tea
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Juice':
-                return <Juice />;
+                return <Juice
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Energy':
-                return <Energy />;
+                return <Energy
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Alcohol':
-                return <Alcohol />;
+                return <Alcohol
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Drink':
-                return <Typedrink />;
+                return <Typedrink
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Coffee':
-                return <Coffee />;
+                return <Coffee
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Exercise':
-                return <Exercise />;
+                return <Exercise
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Meds':
-                return <Meds />;
+                return <Meds
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Herbal':
-                return <Herbal />;
+                return <Herbal
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             case 'Supplements':
-                return <Supplements />;
+                return <Supplements
+                    activeType={activeType}
+                    setActiveType={setActiveType}
+                />;
             default:
                 return null;
         }
@@ -94,7 +147,7 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                         <i className="fas close-update-menu" onClick={Close}>&#xf104;</i>
                         Details
                         <div className='delete-icon' onClick={handleDelete}>
-                        <span className='tooltip'>Delete Entry</span>
+                            <span className='tooltip'>Delete Entry</span>
                             <DeleteIcon />
                         </div>
                     </h1>
@@ -119,7 +172,7 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                         </div>
                     </div>
                     <button className="update-entry-button" onClick={EntryUpdate}>
-                    <span className='tooltip'>Edit Entry</span>
+                        <span className='tooltip'>Edit Entry</span>
                         <PenIcon />
                     </button>
                 </div>
@@ -132,6 +185,8 @@ const UpdateMenu: React.FC<UpdateProps> = ({ open, Close, displayDate, onSaveEnt
                     initialDate={initialDate}
                     localStorageKey={localStorageKey}
                     entryData={entryData}
+                    activeType={activeType}
+                    setActiveType={setActiveType}
                 />
             </div>
             <div onClick={Close} id="update-menu-overlay"></div>

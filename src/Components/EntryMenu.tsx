@@ -13,22 +13,16 @@ interface EntryMenuProps {
   initialDate: Date;
   localStorageKey: string;
   entryData: any;
+  activeType: string;
+  setActiveType: (type: string) => void;
 }
 
-const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveEntry, initialDate, localStorageKey, update, entryData }) => {
+const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveEntry, initialDate, localStorageKey, update, entryData, activeType, setActiveType }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
-  const [food, setFood] = useState<boolean>(true)
-  const [drink, setDrink] = useState<boolean>(false)
-  const [other, setOther] = useState<boolean>(false)
   const [activeTab, setActiveTab] = useState<string>('food')
+
   const [selectedComponent, setSelectedComponent] = useState<string | null>(null)
 
-
-  const display = () => {
-    setFood(false)
-    setDrink(false)
-    setOther(false)
-  }
 
   const handleFood = () => setActiveTab('food');
   const handleDrink = () => setActiveTab('drink');
@@ -53,12 +47,12 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
   if (!open) return null
   return (
     <div>
-      <div className="entry-menu">        
+      <div className="entry-menu">
         <div className="entry-menu-header">
           <h1><i className="fas close-menu" onClick={Close}>&#xf104;</i>Manage</h1>
           <nav className="entry-menu-nav">
             <span className='tooltip' id='category'>Select a Category</span>
-            <li className={`entry-menu-li ${activeTab === 'food' ? 'active' : ''}`}  id="food" onClick={handleFood}>Food</li>
+            <li className={`entry-menu-li ${activeTab === 'food' ? 'active' : ''}`} id="food" onClick={handleFood}>Food</li>
             <li className={`entry-menu-li ${activeTab === 'drink' ? 'active' : ''}`} id="drink" onClick={handleDrink}>Drink</li>
             <li className={`entry-menu-li ${activeTab === 'other' ? 'active' : ''}`} onClick={handleOther}>Other</li>
           </nav>
@@ -67,14 +61,20 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
           {activeTab === 'food' && <Food
             food={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
+            activeType={activeType}
+            setActiveType={setActiveType}
           />}
           {activeTab === 'drink' && <Drink
             drink={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
+            activeType={activeType}
+            setActiveType={setActiveType}
           />}
           {activeTab === 'other' && <Other
             other={isOpen => setIsOpen(isOpen)}
             renderType={clickedComponent}
+            activeType={activeType}
+            setActiveType={setActiveType}
           />}
           <LowerEntryMenu
             onSaveEntry={onSaveEntry}
@@ -86,6 +86,8 @@ const EntryMenu: React.FC<EntryMenuProps> = ({ open, Close, displayDate, onSaveE
             initialDate={initialDate}
             localStorageKey={localStorageKey}
             entryData={entryData}
+            activeType={activeType}
+            setActiveType={setActiveType}
           />
         </div>
       </div>

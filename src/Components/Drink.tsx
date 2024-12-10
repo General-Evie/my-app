@@ -10,9 +10,11 @@ import Coffee from './EntryTypes/Coffee'
 interface DrinkProps {
     drink: (isOpen: boolean) => void;
     renderType: (type: string) => void;
+    activeType: string;
+    setActiveType: (type: string) => void;
 }
 
-const Drink:React.FC<DrinkProps> = ({ drink, renderType }) => {
+const Drink:React.FC<DrinkProps> = ({ drink, renderType, activeType, setActiveType }) => {
 
     const handleType = (type: string) => {
         drink(true);
@@ -25,31 +27,52 @@ const Drink:React.FC<DrinkProps> = ({ drink, renderType }) => {
             <div className="drink">
             <span className='tooltip'>Select a Type</span>
                 <div className="entry-type" onClick={() => handleType('Water')}>
-                    <Water />
+                    <Water 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Water</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Tea')}>
-                    <Tea />
+                    <Tea 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Tea</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Juice')}>
-                    <Juice />
+                    <Juice 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Juice</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Energy')}>
-                    <Energy />
+                    <Energy 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Energy</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Alcohol')}>
-                    <Alcohol />
+                    <Alcohol 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Alcohol</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Drink')}>
-                    <Typedrink />
+                    <Typedrink 
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Drink</div>
                 </div>
                 <div className="entry-type" onClick={() => handleType('Coffee')}>
-                    <Coffee />
+                    <Coffee     
+                        activeType={activeType}
+                        setActiveType={setActiveType}
+                    />
                     <div className="entry-type-name">Coffee</div>
                 </div>
             </div>

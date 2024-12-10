@@ -1,18 +1,19 @@
 import React from 'react'
 import { TeaIcon } from '../SVGs/TeaSVG'
 
-interface TeaProps {}
+interface TeaProps {
+    activeType: string;
+    setActiveType: (type: string) => void
+}
    
 
-const Tea: React.FC<TeaProps> = ({ }) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Tea: React.FC<TeaProps> = ({ activeType, setActiveType}) => {
+    const handleTea = () => setActiveType('tea')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Tea'><TeaIcon /></button>
+        <div onClick={handleTea}>
+            <button className={`entry-buttons ${activeType === 'tea' ? 'active' : ''}`} id='Tea'><TeaIcon /></button>
         </div>
     )
 }

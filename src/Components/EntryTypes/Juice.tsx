@@ -1,17 +1,18 @@
 import React from 'react'
 import { WineIcon } from '../SVGs/WineSVG'
 
-interface JuiceProps {}
+interface JuiceProps {
+    activeType: string;
+    setActiveType: (type: string) => void;
+}
 
-const Juice: React.FC<JuiceProps> = ({}) => {
-    const handleChildClick = () => {
-        const clickedComponent = <div></div>; 
-    };
+const Juice: React.FC<JuiceProps> = ({activeType, setActiveType}) => {
+    const handleJuice = () => setActiveType('juice')
 
 
     return (
-        <div onClick={handleChildClick}>
-            <button className="entry-buttons" id='Juice'><WineIcon /></button>
+        <div onClick={handleJuice}>
+            <button className={`entry-buttons ${activeType === 'juice' ? 'active' : ''}`} id='Juice'><WineIcon /></button>
         </div>
     )
 }
